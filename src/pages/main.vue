@@ -34,6 +34,7 @@ export default {
 
 <style scoped>
 .wrapper{
+  justify-content: center;
   position: fixed;
   z-index: 1;
   background-size: cover;
@@ -67,6 +68,5 @@ h1{
   letter-spacing: 10px;
   font-size: 62px;
   color: white;
-  margin-top: 280px;
 }
 </style>

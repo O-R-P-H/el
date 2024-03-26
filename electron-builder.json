@@ -8,9 +8,14 @@
     "icon": "public/icon.png"
   },
   "win": {
-    "target": "nsis"
+    "extraResources": [
+      "build/**"
+    ],
+    "target": "nsis",
+    "icon": "public/icon.png"
   },
   "linux": {
     "target": "AppImage"
   }
+
 }

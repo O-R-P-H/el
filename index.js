@@ -3,6 +3,8 @@ const path = require('path');
 
 function createWindow() {
     const win = new BrowserWindow({
+        fullscreen:true,
+        autoHideMenuBar: true,
         width: 1920,
         height: 1080,
         webPreferences: {
