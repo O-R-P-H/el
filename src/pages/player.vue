@@ -3,8 +3,11 @@ import {router} from "@/router/router";
 
 export default {
   name:'AudiPlayerPage',
-  created() {
+  mounted() {
     document.addEventListener('keydown',this.handlePressKey)
+  },
+  beforeUnmount(){
+    document.removeEventListener('keydown',this.handlePressKey)
   },
   methods:{
     handlePressKey(event){

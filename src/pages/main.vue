@@ -6,6 +6,9 @@ export default {
   created() {
     document.addEventListener('keydown',this.handlePressKey)
   },
+  beforeUnmount(){
+    document.removeEventListener('keydown',this.handlePressKey)
+  },
   methods:{
     handlePressKey(event){
       if(event.key === "Enter"){
