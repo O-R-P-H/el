@@ -43,22 +43,37 @@ export default {
 </div>
 
 <transition name="fade">
-  <div v-if="searchbarvisible ===false" class="main_container">
-    <div :class="{ 'animate':animate }" class="block">
-      <img src="../../public/img/my_library.svg" alt="library">
-      <p class="subtitles">my library</p>
-    </div>
-    <div @click="searchbarvisible = !searchbarvisible" :class="{ 'animate':animate }" class="block">
-      <img src="../../public/img/search.svg" alt="search">
-      <p class="subtitles">search</p>
-    </div>
-    <div :class="{ 'animate':animate }" class="block">
-      <img src="../../public/img/random.svg" alt="random">
-      <p class="subtitles">random</p>
-    </div>
+  <div>
+      <div v-if="searchbarvisible ===false" class="main_container">
+        <div :class="{ 'animate':animate }" class="block">
+          <img src="../../public/img/my_library.svg" alt="library">
+          <p class="subtitles">my library</p>
+        </div>
+        <div @click="searchbarvisible = !searchbarvisible" :class="{ 'animate':animate }" class="block">
+          <img src="../../public/img/search.svg" alt="search">
+          <p class="subtitles">search</p>
+        </div>
+        <div :class="{ 'animate':animate }" class="block">
+          <img src="../../public/img/random.svg" alt="random">
+          <p class="subtitles">random</p>
+        </div>
+      </div>
   </div>
 </transition>
+<div class="play_block">
+  <div class="buttons">
+    <img id="play" src="../../public/img/play.svg">
+    <img id="back" src="../../public/img/next.svg">
+    <img id="next" src="../../public/img/next.svg">
+  </div>
 
+    <div class="line">
+    </div>
+
+  <div class="song">
+    Beatles - Yesterday
+  </div>
+</div>
   <transition  name="slide" appear>
     <search-bar v-if="searchbarvisible === true"></search-bar>
   </transition>
@@ -68,7 +83,40 @@ export default {
 </template>
 
 <style scoped>
+.song{
+  text-indent: 40px;
+  width: 30vw;
+  font-family: "Anonymous Pro", sans-serif;
+  font-size: 24px;
+  color: #FFFF;
+}
+.buttons{
+  width: 30vw;
+}
+.line{
+  width: 40vw;
+  height: 0px;
+  border: 3px solid #FFFF;
+}
 
+#next{
+  rotate: 180deg;
+}
+#play{
+  margin-left: 20px;
+  margin-right: 2vw;
+}
+
+.play_block{
+  align-items: center;
+  background-color: #1A1919;
+  position: fixed;
+  display: flex;
+  border-radius: 8px 8px 0 0;
+  bottom: 0;
+  height: 90px;
+  width: 100vw;
+}
 
 @keyframes scaleAnimation {
   0% { transform: scale(0.9); }
