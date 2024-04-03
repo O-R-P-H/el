@@ -102,6 +102,7 @@ input::placeholder {
 }
 
 .enter_button {
+  cursor: pointer;
   font-family: "Anonymous Pro", sans-serif;
   align-items: center;
   display: flex;
@@ -114,6 +115,7 @@ input::placeholder {
   letter-spacing: 5px;
 }
 .register_button {
+  cursor: pointer;
   font-family: "Anonymous Pro", sans-serif;
   align-items: center;
   display: flex;
