@@ -41,6 +41,15 @@ export default {
     // Метод для входа пользователя
     async login() {
       // Реализация метода login
+      try {
+        const userData = { email: this.email, password: this.password }; // Формируем объект с данными пользователя
+        const response = await UserService.loginUser(userData); // Отправляем запрос на сервер для входа
+        console.log(response.data); // Выводим ответ в консоль
+        // Если вход прошел успешно, перенаправляем пользователя на страницу профиля
+        await router.push({ path: "/Player" });
+      } catch (error) {
+        console.error(error); // Выводим ошибку в консоль, если вход не удался
+      }
     },
   }
 }
