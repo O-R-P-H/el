@@ -60,20 +60,20 @@ export default {
       </div>
   </div>
 </transition>
-<div class="play_block">
-  <div class="buttons">
-    <img id="play" src="../../public/img/play.svg">
-    <img id="back" src="../../public/img/next.svg">
-    <img id="next" src="../../public/img/next.svg">
-  </div>
+<!--<div class="play_block">-->
+<!--  <div class="buttons">-->
+<!--    <img id="play" src="../../public/img/play.svg">-->
+<!--    <img id="back" src="../../public/img/next.svg">-->
+<!--    <img id="next" src="../../public/img/next.svg">-->
+<!--  </div>-->
 
-    <div class="line">
-    </div>
+<!--    <div class="line">-->
+<!--    </div>-->
 
-  <div class="song">
-    Beatles - Yesterday
-  </div>
-</div>
+<!--  <div class="song">-->
+<!--    Beatles - Yesterday-->
+<!--  </div>-->
+<!--</div>-->
   <transition  name="slide" appear>
     <search-bar v-if="searchbarvisible === true"></search-bar>
   </transition>

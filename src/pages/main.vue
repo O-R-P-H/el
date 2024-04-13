@@ -1,45 +1,52 @@
+<template>
+  <div class="wrapper">
+    <h1>WELCOME</h1>
+    <!-- Форма для регистрации пользователя -->
+    <input v-model="email" class="email_input" placeholder="email">
+    <input v-model="password" type="password" class="password_input" placeholder="password">
+    <div class="button_div">
+      <!-- Кнопка для регистрации -->
+      <button @click="register" class="register_button">Register</button>
+      <!-- Кнопка для входа -->
+      <button @click="login" class="enter_button">Enter</button>
+    </div>
+  </div>
+</template>
+
 <script>
-import {router} from "@/router/router";
+import UserService from '../api/user'; // Импортируем сервис для работы с пользователями
+import { router } from "@/router/router";
 
 export default {
   name: "MainPage",
-  created() {
-    document.addEventListener('keydown', this.handlePressKey)
-  },
-  beforeUnmount() {
-    document.removeEventListener('keydown', this.handlePressKey)
+  data() {
+    return {
+      email: '', // Поле для хранения email
+      password: '', // Поле для хранения пароля
+    };
   },
   methods: {
-    handlePressKey(event) {
-      if (event.key === "Enter") {
-        const button = document.querySelector(".enter_button");
-        button.click();
+    // Метод для регистрации нового пользователя
+    async register() {
+      try {
+        const userData = { email: this.email, password: this.password }; // Формируем объект с данными пользователя
+        const response = await UserService.createUser(userData); // Отправляем данные на сервер для регистрации
+        console.log(response.data); // Выводим ответ в консоль
+        // Если регистрация прошла успешно, перенаправляем пользователя на страницу входа
+        await router.push({path: "/Player"});
+      } catch (error) {
+        console.error(error); // Выводим ошибку в консоль, если регистрация не удалась
       }
     },
-    routerPushToMain() {
-      router.push({path: "/Player"})
-    }
-
+    // Метод для входа пользователя
+    async login() {
+      // Реализация метода login
+    },
   }
 }
-
 </script>
 
-<template>
 
-  <div class="wrapper">
-    <h1>WELCOME</h1>
-    <input class="email_input" placeholder="email">
-    <input type="password" class="password_input" placeholder="password">
-    <div class="button_div">
-      <button class="register_button"> Register</button>
-      <button @click="routerPushToMain" class="enter_button">Enter</button>
-    </div>
-
-  </div>
-
-
-</template>
 
 <style scoped>
 .button_div{
