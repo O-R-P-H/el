@@ -1,8 +1,9 @@
-import { Module } from '@nestjs/common';
+import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user/user-entity';
 import { UserController } from './user/user.controller';
 import { UserService } from './user/user.service';
+import * as cors from 'cors'; // Импортируем cors
 
 @Module({
   imports: [
@@ -21,4 +22,11 @@ import { UserService } from './user/user.service';
   controllers: [UserController],
   providers: [UserService],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(cors()).forRoutes({
+      path: '*',
+      method: RequestMethod.ALL,
+    });
+  }
+}
