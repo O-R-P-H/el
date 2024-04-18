@@ -11,7 +11,7 @@ const UserService = {
         return api.post('/users', userData);
     },
     loginUser(userData) {
-        return api.post('/login', userData);
+        return api.post('/users/login', userData);
     }
     // Другие методы для работы с пользователями
 };
