@@ -1,8 +1,7 @@
 name: Deploy Backend
 
 on:
-  repository_dispatch:
-    types: [deploy-backend]
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -37,4 +36,4 @@ jobs:
           docker pull username/backend:latest
           docker stop backend || true
           docker rm backend || true
-          docker run -d --name backend -p 8080:8080 username/backend:latest
+          docker run -d --name backend -p 8080:8080 username/backend:latest 
