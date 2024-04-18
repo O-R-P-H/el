@@ -1,4 +1,5 @@
 import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
+import { HttpException, HttpStatus } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './user-entity';
 
@@ -29,5 +30,17 @@ export class UserController {
   @Delete(':id')
   remove(@Param('id') id: string): Promise<void> {
     return this.userService.remove(+id);
+  }
+
+  @Post('login')
+  async login(@Body() body: { email: string; password: string }): Promise<User | null> {
+    const { email, password } = body;
+    const user = await this.userService.findByEmailAndPassword(email, password);
+
+    if (!user) {
+      throw new HttpException('Invalid email or password', HttpStatus.UNAUTHORIZED);
+    }
+
+    return user;
   }
 }

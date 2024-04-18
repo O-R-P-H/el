@@ -6,8 +6,8 @@ import { User } from './user-entity';
 @Injectable()
 export class UserService {
   constructor(
-    @InjectRepository(User)
-    private readonly userRepository: Repository<User>,
+      @InjectRepository(User)
+      private readonly userRepository: Repository<User>,
   ) {}
 
   async findAll(): Promise<User[]> {
@@ -30,4 +30,14 @@ export class UserService {
   async remove(id: number): Promise<void> {
     await this.userRepository.delete(id);
   }
+
+  async findByEmailAndPassword(email: string, password: string): Promise<User | null> {
+    // Найдите пользователя по email и паролю
+    const user = await this.userRepository.findOne({ where: { email, password } });
+
+    // Если пользователь найден, верните его, в противном случае верните null
+    return user || null;
+  }
+
+
 }
