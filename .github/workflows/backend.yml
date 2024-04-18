@@ -1,9 +1,8 @@
 name: Deploy Backend
 
 on:
-  push:
-    branches:
-      - backend
+  repository_dispatch:
+    types: [deploy-backend]
 
 jobs:
   deploy:
