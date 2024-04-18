@@ -35,7 +35,7 @@ jobs:
         username: root
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
-          docker pull username/backend:latest
+          docker pull ${{ secrets.DOCKER_USERNAME }}/backend:latest
           docker stop backend || true
           docker rm backend || true
           docker run -d --name backend -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/backend:latest 
