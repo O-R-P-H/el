@@ -26,7 +26,7 @@ jobs:
       run: docker tag backend:latest username/backend:latest
 
     - name: Push Docker image to Docker Hub
-      run: docker push hextsukawa/backend:tagname
+      run: docker push username/backend:latest
 
     - name: SSH into remote server and deploy
       uses: appleboy/ssh-action@master
