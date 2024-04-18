@@ -35,6 +35,7 @@ jobs:
         username: root
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           docker pull ${{ secrets.DOCKER_USERNAME }}/backend:latest
           docker stop backend || true
           docker rm backend || true
