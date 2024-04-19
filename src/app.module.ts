@@ -9,11 +9,11 @@ import * as cors from 'cors'; // Импортируем cors
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: '127.0.0.1',
+      host: '94.241.169.123',
       port: 5432,
-      username: 'postgres',
-      password: 'eNshtein1986',
-      database: 'user_database',
+      username: 'database_administrator',
+      password: 'qWerty654321',
+      database: 'remoteuserddatabase',
       entities: [User],
       synchronize: true,
     }),
