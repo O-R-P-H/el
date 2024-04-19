@@ -9,7 +9,7 @@ import * as cors from 'cors'; // Импортируем cors
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: '127.0.0.1',
       port: 5432,
       username: 'postgres',
       password: 'eNshtein1986',
